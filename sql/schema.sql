@@ -4,7 +4,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 SET @OLD_TIME_ZONE=@@session.time_zone;
 
 DROP SCHEMA IF EXISTS `ghtorrent` ;
-CREATE SCHEMA IF NOT EXISTS `ghtorrent` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `ghtorrent` DEFAULT CHARACTER SET utf8mb4 ;
 USE `ghtorrent` ;
 
 -- -----------------------------------------------------
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`users` (
   `location` VARCHAR(255) NULL DEFAULT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '')
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`projects`
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`projects` (
     FOREIGN KEY (`forked_commit_id`) 
     REFERENCES `commits` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 SET time_zone=@OLD_TIME_ZONE;
 
 -- -----------------------------------------------------
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`commits` (
     FOREIGN KEY (`project_id`)
     REFERENCES `ghtorrent`.`projects` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`commit_comments`
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`commit_comments` (
     FOREIGN KEY (`user_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`commit_parents`
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`commit_parents` (
     FOREIGN KEY (`parent_id`)
     REFERENCES `ghtorrent`.`commits` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`followers`
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`followers` (
     FOREIGN KEY (`user_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`pull_requests`
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`pull_requests` (
     FOREIGN KEY (`base_commit_id`)
     REFERENCES `ghtorrent`.`commits` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`issues`
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`issues` (
     FOREIGN KEY (`pull_request_id`)
     REFERENCES `ghtorrent`.`pull_requests` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`issue_comments`
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`issue_comments` (
     FOREIGN KEY (`user_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`issue_events`
@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`issue_events` (
     FOREIGN KEY (`actor_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`repo_labels`
@@ -260,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`repo_labels` (
     FOREIGN KEY (`repo_id`)
     REFERENCES `ghtorrent`.`projects` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`issue_labels`
@@ -278,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`issue_labels` (
     FOREIGN KEY (`issue_id`)
     REFERENCES `ghtorrent`.`issues` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`organization_members`
@@ -297,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`organization_members` (
     FOREIGN KEY (`user_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`project_commits`
@@ -314,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`project_commits` (
     FOREIGN KEY (`commit_id`)
     REFERENCES `ghtorrent`.`commits` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`project_members`
@@ -334,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`project_members` (
     FOREIGN KEY (`user_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`project_languages`
@@ -350,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`project_languages` (
     FOREIGN KEY (`project_id`)
     REFERENCES `ghtorrent`.`projects` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`project_topics`
@@ -367,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`project_topics` (
     FOREIGN KEY (`project_id`)
     REFERENCES `ghtorrent`.`projects` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`pull_request_comments`
@@ -392,7 +392,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`pull_request_comments` (
     FOREIGN KEY (`commit_id`)
     REFERENCES `ghtorrent`.`commits` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`pull_request_commits`
@@ -410,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`pull_request_commits` (
     FOREIGN KEY (`commit_id`)
     REFERENCES `ghtorrent`.`commits` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`pull_request_history`
@@ -431,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`pull_request_history` (
     FOREIGN KEY (`actor_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`repo_milestones`
@@ -447,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`repo_milestones` (
     FOREIGN KEY (`repo_id`)
     REFERENCES `ghtorrent`.`projects` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`schema_info`
@@ -457,7 +457,7 @@ DROP TABLE IF EXISTS `ghtorrent`.`schema_info` ;
 CREATE TABLE IF NOT EXISTS `ghtorrent`.`schema_info` (
   `version` INT(11) NOT NULL DEFAULT '0' COMMENT '')
 ENGINE = MyISAM
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `ghtorrent`.`watchers`
@@ -476,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `ghtorrent`.`watchers` (
     FOREIGN KEY (`user_id`)
     REFERENCES `ghtorrent`.`users` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8mb4;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

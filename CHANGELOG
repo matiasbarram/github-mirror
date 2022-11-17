@@ -93,7 +93,7 @@
 	* New tool (ght-rm-dupl) to delete duplicate entries from collections (events & commits supported)
 	* Project wide requesting result caching for multi-page requests
 	* Better logging in various places
-	* Better defaults for MySQL (UTF8 + InnoDB tables)
+	* Better defaults for MySQL (UTF8MB4 + InnoDB tables)
 	* Commits are now seperated from projects. Project forks can share commits.
 	* Support for setting the IP address to use for retrieval on multi-homed
 	* Compatibility with Ruby 1.9 (now default) and JRuby

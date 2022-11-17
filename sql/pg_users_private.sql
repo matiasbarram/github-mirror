@@ -10,7 +10,7 @@ CREATE TABLE users_private (
 );
 ALTER TABLE ONLY users_private ADD CONSTRAINT users_private_pkey PRIMARY KEY (login);
 
-COPY users_private FROM 'USERS_PRIVATE_FILE' WITH (FORMAT 'csv', QUOTE E'"', ESCAPE '\', NULL '\N', ENCODING 'UTF8');
+COPY users_private FROM 'USERS_PRIVATE_FILE' WITH (FORMAT 'csv', QUOTE E'"', ESCAPE '\', NULL '\N', ENCODING 'UTF8MB4');
 
 CREATE UNIQUE INDEX users_private_login ON users_private (login ASC);
 

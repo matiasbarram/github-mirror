@@ -39,7 +39,7 @@ module GHTorrent
       return @db unless @db.nil?
 
       Sequel.single_threaded = true
-      @db = Sequel.connect(config(:sql_url), :encoding => 'utf8')
+      @db = Sequel.connect(config(:sql_url), :encoding => 'utf8mb4')
       #@db.loggers << Logger.new(STDOUT)
       if @db.tables.empty?
         dir = File.join(File.dirname(__FILE__), 'migrations')
